@@ -48,7 +48,7 @@ async (req, res) => {
     const data = await Data.findById(parent).populate('items');
     const items = data.items.reverse();
 
-    setTimeout(() => res.json({ items, message: 'Добавлено!' }), 1500);
+    res.json({ items, message: 'Добавлено!' });
   } catch (e) {
     console.log(e.message);
     res.status(500).json({ message: 'Серверная ошибка, повторите попытку' });
@@ -66,7 +66,7 @@ router.post('/get',
 
       const items = data.items.reverse();
 
-      setTimeout(() => res.json({ items }), 1500);
+      res.json({ items });
     } catch (e) {
       console.log(e.message);
       res.status(500).json({ message: 'Серверная ошибка, повторите попытку' });

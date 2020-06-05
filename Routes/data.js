@@ -56,7 +56,7 @@ async (req, res) => {
     await Data.findOneAndUpdate({ personalNumber }, { $addToSet: { parent: id } });
 
     const user = await User.findOne({ _id: id }).populate('data');
-    setTimeout(() => res.json({ message: 'Добавлено!', data: user.data }), 1500);
+    res.json({ message: 'Добавлено!', data: user.data });
   } catch (e) {
     console.log(e.message);
     res.status(500).json({ message: 'Серверная ошибка, повторите попытку' });
@@ -77,7 +77,7 @@ router.post('/del', async (req, res) => {
       },
     );
     const user = await User.findOne({ _id: userid }).populate('data');
-    setTimeout(() => res.json({ message: 'Удалено!', data: user.data }), 1500);
+    res.json({ message: 'Удалено!', data: user.data });
   } catch (e) {
     console.log(e.message);
     res.status(500).json({ message: 'Серверная ошибка, повторите попытку' });
@@ -99,7 +99,7 @@ async (req, res) => {
     const { token } = req.body;
     const id = await jwt.decode(token, 'miraj').userID;
     const user = await User.findOne({ _id: id }).populate('data');
-    setTimeout(() => res.json({ data: user.data }), 1500);
+    res.json({ data: user.data });
   } catch (e) {
     res.status(500).json({ message: 'Серверная ошибка, повторите попытку' });
   }

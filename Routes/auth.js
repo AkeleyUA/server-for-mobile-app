@@ -37,7 +37,7 @@ async (req, res) => {
     // eslint-disable-next-line no-underscore-dangle
     const token = jwt.sign({ userID: user._id }, 'miraj');
 
-    setTimeout(() => res.json({ token }), 3000);
+    res.json({ token });
   } catch (e) {
     res.status(500).json({ message: 'Серверная ошибка, повторите попытку' });
   }

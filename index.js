@@ -14,7 +14,7 @@ app.use('/api/data', require('./Routes/data'));
 app.use('/api/item', require('./Routes/item'));
 
 
-app.use('/', express.static(path.join(__dirname, 'Public')));
+// app.use('/demo', express.static(path.join(__dirname, 'Public')));
 
 app.get('/download', (req, res) => {
   const file = `${__dirname}/Downloads/LOGOtip-app-release.apk`;

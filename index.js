@@ -13,18 +13,18 @@ app.use('/api/auth', require('./Routes/auth'));
 app.use('/api/data', require('./Routes/data'));
 app.use('/api/item', require('./Routes/item'));
 
-app.get('/download', (req, res) => {
-  const file = `${__dirname}/Downloads/LOGOtip-app-release.apk`;
+// app.get('/download', (req, res) => {
+//   const file = `${__dirname}/Downloads/LOGOtip-app-release.apk`;
 
-  const filename = path.basename(file);
-  const mimetype = mime.lookup(file);
+//   const filename = path.basename(file);
+//   const mimetype = mime.lookup(file);
 
-  res.setHeader('Content-disposition', `attachment; filename=${filename}`);
-  res.setHeader('Content-type', mimetype);
+//   res.setHeader('Content-disposition', `attachment; filename=${filename}`);
+//   res.setHeader('Content-type', mimetype);
 
-  const filestream = fs.createReadStream(file);
-  filestream.pipe(res);
-});
+//   const filestream = fs.createReadStream(file);
+//   filestream.pipe(res);
+// });
 
 // app.get('/', express.static(path.join(__dirname, 'Public')));
 

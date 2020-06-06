@@ -13,8 +13,7 @@ app.use('/api/auth', require('./Routes/auth'));
 app.use('/api/data', require('./Routes/data'));
 app.use('/api/item', require('./Routes/item'));
 
-
-// app.use('/demo', express.static(path.join(__dirname, 'Public')));
+app.get('/', express.static(path.join(__dirname, 'Public')));
 
 app.get('/download', (req, res) => {
   const file = `${__dirname}/Downloads/LOGOtip-app-release.apk`;

@@ -13,8 +13,6 @@ app.use('/api/auth', require('./Routes/auth'));
 app.use('/api/data', require('./Routes/data'));
 app.use('/api/item', require('./Routes/item'));
 
-
-
 app.get('/download', (req, res) => {
   const file = `${__dirname}/Downloads/LOGOtip-app-release.apk`;
 
@@ -28,11 +26,11 @@ app.get('/download', (req, res) => {
   filestream.pipe(res);
 });
 
-app.use('/', express.static(path.join(__dirname, 'Public')));
+app.get('/', express.static(path.join(__dirname, 'Public')));
 
-app.get('/', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'Public', 'index.html'));
-});
+// app.get('/', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, 'Public', 'index.html'));
+// });
 
 app.listen(PORT, () => {
   console.log(`server up and started on port:${PORT}`);

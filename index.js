@@ -26,11 +26,11 @@ app.get('/download', (req, res) => {
   filestream.pipe(res);
 });
 
-app.get('/', express.static(path.join(__dirname, 'Public')));
+// app.get('/', express.static(path.join(__dirname, 'Public')));
 
-// app.get('/', (req, res) => {
-//   res.sendFile(path.resolve(__dirname, 'Public', 'index.html'));
-// });
+// // app.get('/', (req, res) => {
+// //   res.sendFile(path.resolve(__dirname, 'Public', 'index.html'));
+// // });
 
 app.listen(PORT, () => {
   console.log(`server up and started on port:${PORT}`);
